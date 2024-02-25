@@ -2,7 +2,7 @@ import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const fetchImagesBtn = document.querySelector('#load-more-button');
+const imagesButton = document.querySelector('#load-more-button');
 const gallery = document.querySelector('.gallery');
 const form = document.querySelector('.search-form');
 const loader = document.querySelector('.loader');
@@ -10,7 +10,7 @@ const input = document.querySelector('.search-input');
 let lightbox;
 
 loader.style.display = 'none';
-fetchImagesBtn.style.display = 'none';
+imagesButton.style.display = 'none';
 
 let currentPage = 1;
 const perPage = 40;
@@ -44,7 +44,7 @@ form.addEventListener('submit', async event => {
       });
     }
 
-    fetchImagesBtn.style.display = 'block';
+    imagesButton.style.display = 'block';
     scrollToTop();
   } catch (error) {
     console.error(error);
@@ -72,7 +72,7 @@ async function getImages(name, page) {
   return response.json();
 }
 
-fetchImagesBtn.addEventListener('click', async () => {
+imagesButton.addEventListener('click', async () => {
   try {
     currentPage++;
     loader.style.display = 'block';
@@ -82,7 +82,7 @@ fetchImagesBtn.addEventListener('click', async () => {
 
     if (!data.hits.length) {
       Notiflix.Notify.info('No more images to load');
-      fetchImagesBtn.style.display = 'none';
+      imagesButton.style.display = 'none';
       return;
     }
 
