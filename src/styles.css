@@ -1,1 +1,152 @@
+/* styles.css */
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #9999ff;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.gallery-item {
+  flex: 0 0 calc(100% - 20px); /* Domyślnie jedno zdjęcie na pełną szerokość kontenera */
+  margin-bottom: 20px;
+  list-style: none; /* Usunięcie kropek z listy */
+}
+
+@media (min-width: 768px) {
+  /* Tablet */
+  .gallery-item {
+    flex: 0 0 calc(50% - 20px); /* Dla tabletu dwa zdjęcia obok siebie */
+  }
+}
+
+@media (min-width: 992px) {
+  /* Desktop */
+  .gallery-item {
+    flex: 0 0 calc(33.33% - 20px); /* Dla desktopu trzy zdjęcia obok siebie */
+  }
+}
+
+.gallery-item:last-child {
+  margin-right: 0;
+}
+
+.gallery-link {
+  display: block;
+  text-decoration: none;
+}
+
+.gallery-image {
+  width: 100%; /* szerokość obrazu na pełną szerokość kontenera */
+  height: auto;
+  margin-bottom: 10px; /* odstęp między obrazem a danymi */
+}
+
+.container-stats {
+  margin-top: 10px; /* odstęp między obrazem a danymi */
+}
+
+.block {
+  text-align: center;
+  letter-spacing: 0.06em;
+  background-color: #f0f8ff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px; /* odstęp między blokami danych */
+}
+
+.title {
+  font-size: 16px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.amount {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.loader-wrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+input[type='text'] {
+  padding: 10px;
+  width: 70%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.search-button {
+  padding: 10px 20px;
+  background-color: #9900ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  letter-spacing: 0.2em;
+}
+
+.search-button:hover {
+  background-color: #555;
+}

@@ -2,7 +2,7 @@ import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const fetchImagesBtn = document.querySelector('#load-more-btn');
+const fetchImagesBtn = document.querySelector('#load-more-button');
 const gallery = document.querySelector('.gallery');
 const form = document.querySelector('.search-form');
 const loader = document.querySelector('.loader');
@@ -140,5 +140,12 @@ function renderImages(images) {
 }
 
 function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const { height: cardHeight } = document
+    .querySelector('.gallery')
+    .firstElementChild.getBoundingClientRect();
+
+  window.scrollBy({
+    top: cardHeight * 2,
+    behavior: 'smooth',
+  });
 }
